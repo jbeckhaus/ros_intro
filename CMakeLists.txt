@@ -125,17 +125,18 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(ros_intro ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+add_definitions(-std=c++11 -Wall -g)
+
 ## Declare a C++ executable
 add_executable(ros_intro_node src/test_node.cpp)
-
+add_executable(test_publisher src/test_publisher.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(ros_intro_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
+add_dependencies(test_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
- target_link_libraries(ros_intro_node
-   ${catkin_LIBRARIES}
- )
+target_link_libraries(ros_intro_node ${catkin_LIBRARIES})
+target_link_libraries(test_publisher ${catkin_LIBRARIES})
 
 #############
 ## Install ##
