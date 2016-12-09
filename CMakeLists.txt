@@ -130,13 +130,19 @@ add_definitions(-std=c++11 -Wall -g)
 ## Declare a C++ executable
 add_executable(ros_intro_node src/test_node.cpp)
 add_executable(test_publisher src/test_publisher.cpp)
+add_executable(test_reciver src/test_reciver.cpp)
+#add_executable(controller src/controller.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 add_dependencies(ros_intro_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(test_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(test_reciver ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#add_dependencies(controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Specify libraries to link a library or executable target against
 target_link_libraries(ros_intro_node ${catkin_LIBRARIES})
 target_link_libraries(test_publisher ${catkin_LIBRARIES})
+target_link_libraries(test_reciver ${catkin_LIBRARIES})
+#target_link_libraries(controller ${catkin_LIBRARIES})
 
 #############
 ## Install ##
